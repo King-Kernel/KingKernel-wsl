@@ -16,11 +16,13 @@ WSL2 Kernel Build Instructions
 	    18917: C:\Windows\WinSxS\amd64_microsoft-windows-lxss-vm-mode-kernel_31bf3856ad364e35_10.0.18917.1000_none_e6f1b244a9bcc14c\kernel
 	    18922: C:\Windows\WinSxS\amd64_microsoft-windows-lxss-vm-mode-kernel_31bf3856ad364e35_10.0.18922.1000_none_11af2c2f4a15738e\kernel
 
+	BE SURE TO MAKE A BACKUP OF THE OFFICIAL KERNEL PRIOR TO REPLACEMENT!
+
 	The kernel can be replaced like a regular file after completing the following steps:
 		1. Shut down the utility VM: wsl --shutdown
 		2. Take ownership of the file using Explorer (Properties -> Security -> Advanced -> Owner -> Change)
-		3. Grant "Full Control" over the file to Administrators and/or your user of choice
-
-	BE SURE TO MAKE A BACKUP OF THE OFFICIAL KERNEL PRIOR TO REPLACEMENT!
+			a. Make sure the owner is "Administrators"
+		3. Grant "Full Control" over the file to Administrators and/or your user of choice in the permissions window
+		4. OVERWRITE the old kernel file with the new one (Do not delete the old one, just replace it)
 
 Note: Having any custom kernel installed currently breaks distribution installation and conversion for unknown reasons and causes the process to lock up. A temporary workaround is to use the official kernel for the aforementioned administrative tasks, then revert back to your custom kernel afterwards.
