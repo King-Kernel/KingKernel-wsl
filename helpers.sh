@@ -152,7 +152,7 @@ function tbuild() {
 
 # Install the given kernel image with environment-based method selection
 function ktest() {
-	if [[ -d /mnt/c/Windows/System32 ]]; then
+	if [[ -d /mnt/c/Windows/System32/lxss ]]; then
 		# WSL (both 1 and 2)
 		wktest "$@"
 	else
