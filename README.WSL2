@@ -12,17 +12,16 @@ WSL2 Kernel Build Instructions
 
 4. Replace the kernel used by the WSL2 utility VM on Windows
 	Product path: arch/x86/boot/compressed/vmlinux.bin
-	Windows paths by build number:
-	    18917: C:\Windows\WinSxS\amd64_microsoft-windows-lxss-vm-mode-kernel_31bf3856ad364e35_10.0.18917.1000_none_e6f1b244a9bcc14c\kernel
-	    18922: C:\Windows\WinSxS\amd64_microsoft-windows-lxss-vm-mode-kernel_31bf3856ad364e35_10.0.18922.1000_none_11af2c2f4a15738e\kernel
+	WSL kernel path: C:\Windows\System32\lxss\tools\kernel
 
 	BE SURE TO MAKE A BACKUP OF THE OFFICIAL KERNEL PRIOR TO REPLACEMENT!
-
-	The kernel can be replaced like a regular file after completing the following steps:
+	The kernel can be replaced using the following steps:
 		1. Shut down the utility VM: wsl --shutdown
-		2. Take ownership of the file using Explorer (Properties -> Security -> Advanced -> Owner -> Change)
-			a. Make sure the owner is "Administrators"
-		3. Grant "Full Control" over the file to Administrators and/or your user of choice in the permissions window
-		4. OVERWRITE the old kernel file with the new one (Do not delete the old one, just replace it)
+		2. (one-time) Take ownership of the Windows "kernel" file using Explorer (Properties -> Security -> Advanced -> Owner -> Change)
+		3. (one-time) Grant "Full Control" of the Windows "kernel" file to Administrators and/or your user of choice
+		4. Rename the new kernel file (vmlinux.bin) to "kernel"
+		5. Copy the new "kernel" file to C:\Windows\System32\lxss\tools and choose to overwrite the file
 
-Note: Having any custom kernel installed currently breaks distribution installation and conversion for unknown reasons and causes the process to lock up. A temporary workaround is to use the official kernel for the aforementioned administrative tasks, then revert back to your custom kernel afterwards.
+	Be sure to *copy and overwrite* the kernel. Doing otherwise (moving, deleting and recreating, etc.) will invalidate the hard link in WinSxS, which may cause issues when updating or repairing the system in the future. You have been warned.
+
+Note: Having any custom kernel installed currently breaks distribution installation and conversion for unknown reasons and causes the process to lock up. A temporary workaround is to use the official kernel for the aforementioned tasks, then revert back to your custom kernel afterwards.
