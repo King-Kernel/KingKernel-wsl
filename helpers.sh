@@ -2,9 +2,6 @@
 # Interactive helpers for WSL2 kernel compilation
 # Copyright (C) 2019 Danny Lin <danny@kdrag0n.dev>
 #
-# This script must be *sourced* from zsh (bash is NOT supported) in order to
-# function. Nothing will happen if you execute it.
-#
 # Sourcing a compiler-specific setup script instead of directly sourcing this
 # file is highly recommended because it provides additional configuration
 # options and has withstood more thorough testing.
