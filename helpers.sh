@@ -93,12 +93,12 @@ function cpimg() {
 
 # Create a test copy of the current kernel image
 function dimg() {
-	cpimg "builds/ProtonKernel-wsl2-test$(buildnum).bin"
+	cpimg "builds/KingKernel-wsl2-test$(buildnum).bin"
 }
 
 # Create a test copy of the current kernel image and upload it to transfer.sh
 function timg() {
-	dimg && transfer "builds/ProtonKernel-wsl2-test$(buildnum).bin"
+	dimg && transfer "builds/KingKernel-wsl2-test$(buildnum).bin"
 }
 
 # Build an incremental release copy of the kernel
@@ -112,7 +112,7 @@ function rel() {
 	kmake "$@"
 
 	# Create release copy
-	cpimg "builds/ProtonKernel-wsl2-v$(buildnum).bin"
+	cpimg "builds/KingKernel-wsl2-v$(buildnum).bin"
 
 	# Revert versions
 	mv "$kroot/out/.version" "$kroot/out/.relversion" && \
@@ -259,5 +259,5 @@ function osize() {
 
 # Create a link to a commit on GitHub
 function glink() {
-	echo "https://github.com/kdrag0n/proton_wsl2/commit/$1"
+	echo "https://github.com/King-Kernel/KingKernel-wsl/commit/$1"
 }
