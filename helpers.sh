@@ -173,7 +173,7 @@ function wktest() {
 	cp -f "$fn" "$(wslpath "$tmp_path")"
 
 	msg "Finishing installation in Windows..."
-	pushd -q /mnt/c
+	pushd /mnt/c
 
 	cat <<-END | sed 's/$/\r/' | powershell.exe -noprofile -noninteractive -command 'iex $input'
 	Unregister-ScheduledJob -Name WslKernelInstall > \$null 2>&1;
@@ -184,7 +184,7 @@ function wktest() {
 	} > \$null;
 	END
 
-	popd -q
+	popd
 }
 
 # Install the given kernel image from native Linux (Windows VM host)
