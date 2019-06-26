@@ -25,6 +25,36 @@ kmake_flags=(
 
 #### BASE ####
 
+function help_kernel() {
+    echo "croot: cd to the root of the kernel tree, where the helper scripts are"
+    echo "cpimg: Copy the product to the specified path, defaulting to kernel.bin"
+    echo "dimg: Copy the product to builds with a file name tailored for development/test releases"
+    echo "timg: Run dimg, then upload the resulting file to [transfer.sh](https://transfer.sh/)"
+    echo "kmake: A wrapper for make that passes the defined kernel-oriented arguments"
+    echo "cleanbuild: Perform a clean build and run cpimg"
+    echo "incbuild: Perform an incremental build and run cpimg"
+    echo "dbuild: Perform an incremental build and run dimg"
+    echo "tbuild: Perform an incremental build and run timg"
+    echo "rel: Build and copy the product to builds with a file name and version tailored for stable releases"
+    echo "crel: Clean the built object files and run rel"
+    echo "ktest: Install kernel.bin using an auto-selected method (wktest for WSL 1 and WSL 2, vktest for other environments)"
+    echo "wktest: Install kernel.bin locally from either WSL 1 or WSL 2"
+    echo "vktest: Install kernel.bin into WSL 2 in the Windows VM running on a bare-metal Linux host (using the winvm SSH host)"
+    echo "inc: Perform an incremental build and install the product using an auto-selected method (wktest for WSL 1 and WSL 2, vktest for other environments)"
+    echo "winc: Perform an incremental build and install the product locally from either WSL 1 or WSL 2"
+    echo "vinc: Perform an incremental build and install the product into WSL 2 in the Windows VM running on a bare-metal Linux host (using the winvm SSH host)"
+    echo "dc: diff the current config with wsl2_defconfig"
+    echo "cpc: Update wsl2_defconfig with the current config"
+    echo "mc: Reset the current config to wsl2_defconfig"
+    echo "cf: Start an interactive config editor with a TUI (nconfig)"
+    echo "ec: Open the raw current config in a text editor"
+    echo "buildnum: Get the current build number"
+    echo "zerover: Reset the build number to 0"
+    echo "zver: Get the version string from an uncompressed kernel image"
+    echo "osize: Get a sorted list of the sizes of various objects compiled and linked into the final kernel image"
+    echo "glink: Get a link to the provided commit hash in this repository on GitHub"
+}
+
 # Show an informational message
 function msg() {
     echo -e "\e[1;32m$1\e[0m"
