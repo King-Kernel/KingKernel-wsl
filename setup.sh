@@ -7,11 +7,11 @@
 #
 
 # GCC executable name
-gcc_name="gcc"
+gcc_name="gcc-9"
 
 # Number of parallel jobs to run
 # Do not remove; set to 1 for no parallelism.
-jobs=$(nproc)
+jobs=$(nproc --all)
 
 # Do not edit below this point
 # ----------------------------
